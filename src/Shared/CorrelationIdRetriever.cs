@@ -30,20 +30,20 @@ public class CorrelationIdRetriever : IRetrieveCorrelationId
     {
         var value = string.Empty;
 
-        if(contextAccessor?.HttpContext?.Request?.Headers.TryGetValue(HeaderKey, out StringValues source) ?? false)
+        if(contextAccessor.HttpContext?.Request?.Headers.TryGetValue(HeaderKey, out StringValues source) ?? false)
         {
             value = source.FirstOrDefault();
         }
-        else if(contextAccessor?.HttpContext?.Response?.Headers.TryGetValue(HeaderKey, out source) ?? false)
+        else if(contextAccessor.HttpContext?.Response?.Headers.TryGetValue(HeaderKey, out source) ?? false)
         {
             value = source.FirstOrDefault();
         }
 
         string result = string.IsNullOrEmpty(value) ? Guid.NewGuid().ToString() : value;
 
-        if(!contextAccessor?.HttpContext?.Response?.Headers.ContainsKey(HeaderKey) ?? false)
+        if(!contextAccessor.HttpContext?.Response?.Headers.ContainsKey(HeaderKey) ?? false)
         {
-            contextAccessor.HttpContext.Response.Headers.Add(HeaderKey, (StringValues)result);
+            contextAccessor.HttpContext?.Response.Headers.Add(HeaderKey, (StringValues)result);
         }
 
         return result;

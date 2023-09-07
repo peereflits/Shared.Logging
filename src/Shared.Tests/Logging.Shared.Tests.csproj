@@ -3,20 +3,11 @@
   <PropertyGroup>
     <AssemblyName>Peereflits.Shared.Logging.Shared.Tests</AssemblyName>
     <RootNamespace>Peereflits.Shared.Logging.Shared.Tests</RootNamespace>
-    <TargetFrameworks>netcoreapp3.1;net60;net70</TargetFrameworks>
+    <TargetFrameworks>net60;net70</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
-    <ApplicationIcon>..\Solution Items\favicon.ico</ApplicationIcon>
     <IsPackable>false</IsPackable>
-    <LangVersion>latest</LangVersion>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>

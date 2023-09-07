@@ -15,7 +15,7 @@ public class SerilogInstallerHostBuilderExtensionsTests
     [Fact]
     public void WhenUseDefaultSerilog_ItShouldRegisterALogger()
     {
-        string env = Environment.GetEnvironmentVariable(environment);
+        string? env = Environment.GetEnvironmentVariable(environment);
         Environment.SetEnvironmentVariable(environment, "Development");
 
         var hb = Substitute.For<IFunctionsHostBuilder>();
@@ -26,7 +26,7 @@ public class SerilogInstallerHostBuilderExtensionsTests
         Assert.Contains(hb.Services, x => x.ServiceType == typeof(ILogger<>));
         Assert.Contains(hb.Services,
                         x => x.ServiceType == typeof(ILoggerProvider)
-                          && x.ImplementationInstance.ToString() == "Serilog.Extensions.Logging.SerilogLoggerProvider"
+                          && x.ImplementationInstance?.ToString() == "Serilog.Extensions.Logging.SerilogLoggerProvider"
                        );
 
         Environment.SetEnvironmentVariable(environment, env);

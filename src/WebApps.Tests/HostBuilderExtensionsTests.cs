@@ -16,10 +16,10 @@ public class HostBuilderExtensionsTests
         builder.UseSerilog();
         
         IHost host = builder.Build();
-        object logger = host.Services.GetService(typeof(ILogger<HostBuilderExtensionsTests>));
+        object? logger = host.Services.GetService(typeof(ILogger<HostBuilderExtensionsTests>));
         Assert.NotNull(logger);
 
-        object loggerFactory = host.Services.GetService(typeof(ILoggerFactory));
+        object? loggerFactory = host.Services.GetService(typeof(ILoggerFactory));
         Assert.NotNull(loggerFactory);
         Assert.IsType<SerilogLoggerFactory>(loggerFactory);
     }
@@ -36,10 +36,10 @@ public class HostBuilderExtensionsTests
         hb.UseSerilog(useApplicationConfiguration: true);
         
         IHost host = hb.Build();
-        object logger = host.Services.GetService(typeof(ILogger<HostBuilderExtensionsTests>));
+        object? logger = host.Services.GetService(typeof(ILogger<HostBuilderExtensionsTests>));
         Assert.NotNull(logger);
 
-        object loggerFactory = host.Services.GetService(typeof(ILoggerFactory));
+        object? loggerFactory = host.Services.GetService(typeof(ILoggerFactory));
         Assert.NotNull(loggerFactory);
         Assert.IsType<SerilogLoggerFactory>(loggerFactory);
     }

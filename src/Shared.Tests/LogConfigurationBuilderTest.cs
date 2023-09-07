@@ -24,9 +24,9 @@ public class LogConfigurationBuilderTest
     [Fact]
     public void WhenLogToLogzio_WhileTokenIsNotConfigured_ItShouldThrow()
     {
-        string env = Environment.GetEnvironmentVariable(FunctionsEnvironment);
-        string logTo = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogToLogzio);
-        string token = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogzioToken);
+        string? env = Environment.GetEnvironmentVariable(FunctionsEnvironment);
+        string? logTo = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogToLogzio);
+        string? token = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogzioToken);
 
         Environment.SetEnvironmentVariable(FunctionsEnvironment, "Test");
         Environment.SetEnvironmentVariable(LogConfigurationBuilder.LogToLogzio, "1");
@@ -43,8 +43,8 @@ public class LogConfigurationBuilderTest
     [Fact]
     public void WhenBuild_WhileNotInDebug_ItShouldReturnAnInstance()
     {
-        string env = Environment.GetEnvironmentVariable(FunctionsEnvironment);
-        string logTo = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogToConsole);
+        string? env = Environment.GetEnvironmentVariable(FunctionsEnvironment);
+        string? logTo = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogToConsole);
 
         Environment.SetEnvironmentVariable(FunctionsEnvironment, "Test");
         Environment.SetEnvironmentVariable(LogConfigurationBuilder.LogToConsole, "yes");
@@ -69,7 +69,7 @@ public class LogConfigurationBuilderTest
     [InlineData("any", LogEventLevel.Information)]
     public void WhenConfiguring_ItShouldSetCorrectLogLevel(string level, LogEventLevel expected)
     {
-        string logLevel = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogLevel);
+        string? logLevel = Environment.GetEnvironmentVariable(LogConfigurationBuilder.LogLevel);
         Environment.SetEnvironmentVariable(LogConfigurationBuilder.LogLevel, level);
 
         LogEventLevel actual = LogConfigurationBuilder.GetLogLevel();

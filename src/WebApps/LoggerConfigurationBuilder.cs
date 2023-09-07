@@ -5,10 +5,10 @@ namespace Peereflits.Shared.Logging;
 
 internal static class LoggerConfigurationBuilder
 {
-    public static LoggerConfiguration Build(string applicationName, IConfiguration configuration = null) 
+    public static LoggerConfiguration Build(string applicationName, IConfiguration? configuration = null) 
         => new LoggerConfiguration().UseDefault(applicationName, configuration);
 
-    public static LoggerConfiguration UseDefault(this LoggerConfiguration loggerConfiguration, string applicationName, IConfiguration configuration = null)
+    public static LoggerConfiguration UseDefault(this LoggerConfiguration loggerConfiguration, string applicationName, IConfiguration? configuration = null)
     {
         if(configuration == null)
         {

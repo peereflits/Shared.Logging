@@ -75,7 +75,7 @@ public static class LogConfigurationBuilder
             return string.Empty;
         }
 
-        string token = Environment.GetEnvironmentVariable(LogzioToken);
+        string? token = Environment.GetEnvironmentVariable(LogzioToken);
 
         return string.IsNullOrWhiteSpace(token)
                        ? throw new InvalidOperationException($"Missing a configuration value for '{LogzioToken}'")
@@ -98,7 +98,7 @@ public static class LogConfigurationBuilder
 
     public static LogEventLevel GetLogLevel()
     {
-        string level = Environment.GetEnvironmentVariable(LogLevel);
+        string? level = Environment.GetEnvironmentVariable(LogLevel);
 
         return level?.ToLowerInvariant().Trim() switch
         {

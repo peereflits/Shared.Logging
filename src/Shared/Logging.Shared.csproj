@@ -3,21 +3,15 @@
   <PropertyGroup>
     <AssemblyName>Peereflits.Shared.Logging.Shared</AssemblyName>
     <RootNamespace>Peereflits.Shared.Logging</RootNamespace>
-    <TargetFrameworks>netstandard2.1;net60;net70</TargetFrameworks>
-    <VersionPrefix>1.0.1</VersionPrefix>
+    <TargetFrameworks>net60;net70</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
-    <ApplicationIcon>..\Solution Items\favicon.ico</ApplicationIcon>
     <IsPackable>true</IsPackable>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Authors>Peereflits</Authors>
-    <Copyright>No Copyright ©, The Netherlands</Copyright>
     <Description>Peereflits.Shared.Logging.Shared is a shared library for logging with Peereflits.Shared.Logging.WebApps or Peereflits.Shared.Logging.Functions.</Description>
-    <Product>Peereflits.Shared.Logging</Product>
   </PropertyGroup>
 
   <PropertyGroup Label="Package">
@@ -32,18 +26,6 @@ This component is part of Peereflits.Shared.Logging.
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/peereflits/Shared.Logging</RepositoryUrl>
     <Title>Peereflits.Shared.Logging.Shared package</Title>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
@@ -70,12 +52,6 @@ This component is part of Peereflits.Shared.Logging.
   <ItemGroup>
     <InternalsVisibleTo Include="Peereflits.Shared.Logging.Shared.Tests" />
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="AppIdMapper.ini">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
