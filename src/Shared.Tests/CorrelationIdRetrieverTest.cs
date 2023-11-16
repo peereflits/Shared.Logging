@@ -40,7 +40,7 @@ public class CorrelationIdRetrieverTest
         var expected = Guid.NewGuid().ToString();
 
         var context = new DefaultHttpContext();
-        context.Request.Headers.Add(HeaderKey, (StringValues)expected);
+        context.Request.Headers.Append(HeaderKey, (StringValues)expected);
         contextAccessor.HttpContext.Returns(context);
 
         string result = subject.Execute();
@@ -53,7 +53,7 @@ public class CorrelationIdRetrieverTest
         var expected = Guid.NewGuid().ToString();
 
         var context = new DefaultHttpContext();
-        context.Request.Headers.Add(HeaderKey, (StringValues)expected);
+        context.Request.Headers.Append(HeaderKey, (StringValues)expected);
         contextAccessor.HttpContext.Returns(context);
 
         string result1 = subject.Execute();

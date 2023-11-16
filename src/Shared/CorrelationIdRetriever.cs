@@ -28,22 +28,28 @@ public class CorrelationIdRetriever : IRetrieveCorrelationId
 
     public string Execute()
     {
-        var value = string.Empty;
+        IHeaderDictionary? headers = contextAccessor.HttpContext?.Response.Headers;
 
-        if(contextAccessor.HttpContext?.Request?.Headers.TryGetValue(HeaderKey, out StringValues source) ?? false)
+        if(headers == null)
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        var value = string.Empty;
+        if(contextAccessor.HttpContext?.Request.Headers.TryGetValue(HeaderKey, out StringValues source) ?? false)
         {
             value = source.FirstOrDefault();
         }
-        else if(contextAccessor.HttpContext?.Response?.Headers.TryGetValue(HeaderKey, out source) ?? false)
+        else if(headers.TryGetValue(HeaderKey, out source))
         {
             value = source.FirstOrDefault();
         }
 
         string result = string.IsNullOrEmpty(value) ? Guid.NewGuid().ToString() : value;
 
-        if(!contextAccessor.HttpContext?.Response?.Headers.ContainsKey(HeaderKey) ?? false)
+        if(!headers.ContainsKey(HeaderKey))
         {
-            contextAccessor.HttpContext?.Response.Headers.Add(HeaderKey, (StringValues)result);
+            headers.Append(HeaderKey, (StringValues)result);
         }
 
         return result;
