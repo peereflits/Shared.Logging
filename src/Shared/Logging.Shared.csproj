@@ -21,6 +21,7 @@ Peereflits.Shared.Logging.Shared is a shared library for logging with Peereflits
 This component is part of Peereflits.Shared.Logging.
     </PackageDescription>
     <PackageIcon>PackageIcon.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/peereflits/Shared.Logging</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>

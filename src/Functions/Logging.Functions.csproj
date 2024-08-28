@@ -21,6 +21,7 @@ Peereflits.Shared.Logging.Functions is an extension library for logging within A
 This component is part of Peereflits.Shared.Logging.
     </PackageDescription>
     <PackageIcon>PackageIcon.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/peereflits/Shared.Logging</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
